@@ -1,18 +1,16 @@
 terraform {
   required_providers {
     aws = {
-      source = "hashicorp/aws"
+      source  = "hashicorp/aws"
+      version = "3.26.0"
+    }
+    random = {
+      source  = "hashicorp/random"
+      version = "3.0.1"
     }
   }
-}
+  required_version = ">= 1.1.0"
 
-provider "aws" {
-  region  = "eu-west-3"
-  shared_credentials_files = ["~/.aws/credentials"]
-  shared_config_files = ["~/.aws/config"]
-  profile = "default"
-}
-terraform {
   cloud {
     organization = "Demo-Organization-tf"
 
@@ -20,6 +18,10 @@ terraform {
       name = "gh-actions-demo"
     }
   }
+}
+
+provider "aws" {
+  region = "us-west-2"
 }
 
 resource "random_pet" "sg" {}
