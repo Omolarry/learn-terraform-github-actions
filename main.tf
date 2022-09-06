@@ -15,7 +15,6 @@ terraform {
       name = "gh-actions-demo"
     }
   }
-}
 
 provider "aws" {
   region = "eu-west-3"
